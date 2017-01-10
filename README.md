@@ -35,7 +35,13 @@ def get_master_url():
 
 ### usage
 
-- clone the project
+- install
+
+```
+npm i aliyun-cs-client -s
+```
+
+- or clone the project
 
 ```
 git clone https://github.com/thonatos/aliyun-cs-client
@@ -51,7 +57,9 @@ touch app.js
 - app.js
 
 ```
-const Cluster = require('./')
+const Cluster = require('aliyun-cs-client')
+
+// const Cluster = require('./') // if clone the repo
 
 const hz = new Cluster({
 
