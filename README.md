@@ -54,12 +54,14 @@ touch app.js
 const Cluster = require('./')
 
 const hz = new Cluster({
+
   // you can get master url with the python script under example
   // or aliyun cs admin dashboard : 
   // tcp://{ID}.cs-cn-hangzhou.aliyun.com:15086
   // change it to : https://{ID}.cs-cn-hangzhou.aliyun.com:15086
   // then, download the ssl ca/key/cert ~
-  master_url: '{YOUR_MASTER_URL}',
+
+  master_url: '{YOUR_MASTER_URL}',
   ssl: {
     ca: fs.readFileSync(path.resolve(__dirname, '../cluster/hz/ca.pem')),
     cert: fs.readFileSync(path.resolve(__dirname, '../cluster/hz/cert.pem')),
@@ -67,3 +69,32 @@ const hz = new Cluster({
   }
 })
 ```
+
+### Example dir structue
+
+```
+➔ tree -L 3
+.
+├── LICENSE
+├── README.md
+├── cluster
+│   └── hz
+│       ├── ca.pem
+│       ├── cert.pem
+│       └── key.pem
+├── composer
+│   ├── share.yml
+│   └── www.yml
+├── examples
+│   ├── app.js
+│   ├── cluster.py
+│   └── test.yml
+├── lib
+│   └── index.js
+└── node_modules
+```
+
+## More
+
+- [Aliyun Container Service](https://cn.aliyun.com/product/containerservice?spm=5176.doc26063.416540.31.8xc1Dv)
+- [Aliyun Container Service Docoument](https://help.aliyun.com/document_detail/26063.html?spm=5176.doc25983.6.678.m6RLTl)
