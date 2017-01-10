@@ -35,4 +35,35 @@ def get_master_url():
 
 ### usage
 
-COMING SOON.
+- clone the project
+
+```
+git clone https://github.com/thonatos/aliyun-cs-client
+cd aliyun-cs-client
+```
+
+- nodejs
+
+```
+touch app.js
+```
+
+- app.js
+
+```
+const Cluster = require('./')
+
+const hz = new Cluster({
+  // you can get master url with the python script under example
+  // or aliyun cs admin dashboard : 
+  // tcp://{ID}.cs-cn-hangzhou.aliyun.com:15086
+  // change it to : https://{ID}.cs-cn-hangzhou.aliyun.com:15086
+  // then, download the ssl ca/key/cert ~
+  master_url: '{YOUR_MASTER_URL}',
+  ssl: {
+    ca: fs.readFileSync(path.resolve(__dirname, '../cluster/hz/ca.pem')),
+    cert: fs.readFileSync(path.resolve(__dirname, '../cluster/hz/cert.pem')),
+    key: fs.readFileSync(path.resolve(__dirname, '../cluster/hz/key.pem'))
+  }
+})
+```
