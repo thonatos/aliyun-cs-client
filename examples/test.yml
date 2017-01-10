@@ -1,0 +1,13 @@
+version: '2'
+services:
+  web:
+    environment:
+      HOME: /root
+      NGINXLOCATION: US
+    ports:
+      - "80"
+    image: 'nginx:stable-alpine'
+    restart: always
+    labels:
+      aliyun.scale: '2'      
+      aliyun.rolling_updates: 'true'
